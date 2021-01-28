@@ -35,18 +35,29 @@ function squareDigits(n){
     return parseInt(n.toString().split('').reduce((a,v)=>a+v*v,''))
 }
 
-/**onvert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. 
+/**onvert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" 
+ * if that character appears more than once in the original string. 
  * Ignore capitalization when determining if a character is a duplicate. */
 
- funtion duplicateEncode(word){
-     word = word.toLowerCase()
-     let charMap = {}
-     let res = ''
-     word.split('').forEach(function(i){
-         charMap[i] = charMap[i] ? charMap[i]+1 : 1
-     })
-     word.split('').forEach(function(i){
+function duplicateEncode(word){
+    word = word.toLowerCase()
+    let charMap = {}
+    let res = ''
+    word.split('').forEach(function(i){
+        charMap[i] = charMap[i] ? charMap[i]+1 : 1
+    })
+    word.split('').forEach(function(i){
         res+=charMap[i]===1 ? '(':')'
-     })
-     return res
+    })
+    return res
+}
+
+/** Walk Generating App on their phones -- everytime you press the button it sends you an array of one-letter strings representing directions to walk (eg. ['n', 's', 'w', 'e']). 
+ * You always walk only a single block for each letter (direction) and you know it takes you one minute to traverse one city block, so create a function that will return true if 
+ * the walk the app gives you will take you exactly ten minutes (you don't want to be early or late!) and will, of course, return you to your starting point. Return false otherwise. */
+
+ function isValidWalk(arr){
+    let res = {w:0, e:0, s:0, n:0}
+    arr.forEach(item=>res[item]++)
+    return arr.length === 10 && res[w] === res[e] && res[s] === res[n]
  }
