@@ -26,3 +26,11 @@ Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1. */
 function binaryArrayToNumber(arr){
     return parseInt(arr.join(''), 2)
 }
+
+/**square every digit of a number and concatenate them.
+
+For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1. */
+
+function squareDigits(n){
+    return parseInt(n.toString().split('').reduce((a,v)=>a+v*v,''))
+}
