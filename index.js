@@ -13,3 +13,8 @@ function descendingOrder(n){
 function square(n){
     return Math.sqrt(parseInt(n))%1===0
 }
+
+/**Return the number (count) of vowels in the given string */
+function vowelCount(str){
+    return (str.match(/[aeiou]/ig)||[]).length
+}
