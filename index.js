@@ -143,3 +143,8 @@ function inArray(array1, array2){
     .filter(a1=>array2.find(a2=>a2.match(a1)))
     .sort()
 }
+
+/**Count the smiley faces */
+function countSmileys(arr){
+    return arr.filter(x => /^[:;][-~]?[(D]$/.test(x)).length;
+}
