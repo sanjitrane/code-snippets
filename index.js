@@ -71,3 +71,61 @@ If the parameter is itself not a perfect square then -1 should be returned. You 
 function findNextSquare(sq){
     return Math.sqrt(sq)%1===0 ? Math.pow(Math.sqrt(sq)+1, 2) : -1
 }
+
+/**
+ * There is a bus moving in the city, and it takes and drop some people in each bus stop.
+You are provided with a list (or array) of integer arrays (or tuples). Each integer array has two items which represent number of people get into bus (The first item) and number of people get off the bus (The second item) in a bus stop.
+Your task is to return number of people who are still in the bus after the last bus station (after the last array). Even though it is the last bus stop, the bus is not empty and some people are still in the bus, and they are probably sleeping there :D
+Take a look on the test cases.
+Please keep in mind that the test cases ensure that the number of people in the bus is always >= 0. So the return integer can't be negative.
+The second value in the first integer array is 0, since the bus is empty in the first bus stop.
+ */
+
+const number = (busStop)=>{
+    let passengers = 0
+    busStop.forEach(item=>{
+        passengers+=item[0]-item[1]
+    })
+    return passengers
+}
+
+/**calculations using functions */
+function expression(n, operation){
+    if(!operation) return n
+    return operation(n)
+}
+
+function zero(op){ return expression(0, op)}
+function one(op){return expression(1, op)}
+function two(op){ return expression(2, op)}
+function three(op){return expression(3, op)}
+function four(op){ return expression(4, op)}
+function five(op){return expression(5, op)}
+function six(op){ return expression(6, op)}
+function seven(op){return expression(7, op)}
+function eight(op){ return expression(8, op)}
+function nine(op){ return expression(9, op)}
+
+function plus(x){
+    return function(y){
+        return y + x
+    }
+}
+
+function minus(x){
+    return function(y){
+        return y - x
+    }
+}
+
+function times(x){
+    return function(y){
+        return y * x
+    }
+}
+
+function divideBy(x){
+    return function(y){
+        return Math.floor(y / x)
+    }
+}
