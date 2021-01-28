@@ -8,3 +8,8 @@ function maskify(cc){
 function descendingOrder(n){
     return parseInt(n.toString().split('').sort().reverse().join(''))
 }
+
+/**function to check if the supplied number is a perfect square */
+function square(n){
+    return Math.sqrt(parseInt(n))%1===0
+}
