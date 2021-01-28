@@ -129,3 +129,9 @@ function divideBy(x){
         return Math.floor(y / x)
     }
 }
+
+/**Bit Counting */
+function countBits(n){
+    let binary = n.toString(2)
+    return (binary.match(/[1]/g)||[]).length
+}
