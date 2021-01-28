@@ -34,3 +34,19 @@ For example, if we run 9119 through the function, 811181 will come out, because 
 function squareDigits(n){
     return parseInt(n.toString().split('').reduce((a,v)=>a+v*v,''))
 }
+
+/**onvert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. 
+ * Ignore capitalization when determining if a character is a duplicate. */
+
+ funtion duplicateEncode(word){
+     word = word.toLowerCase()
+     let charMap = {}
+     let res = ''
+     word.split('').forEach(function(i){
+         charMap[i] = charMap[i] ? charMap[i]+1 : 1
+     })
+     word.split('').forEach(function(i){
+        res+=charMap[i]===1 ? '(':')'
+     })
+     return res
+ }
