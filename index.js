@@ -201,3 +201,12 @@ function findEvenIndex(arr){
     }
     return -1
 }
+
+/**Fibonacci memoized */
+
+function fibonacci(n, memo){
+    memo = memo || {}
+    if(memo[n]) return memo[n]
+    if(n < 2) return n
+    return memo[n] = fibonacci(n-1,memo) - fibonacci(n-2, memo)
+}
