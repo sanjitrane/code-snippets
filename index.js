@@ -172,3 +172,17 @@ function findOdd(A){
     })
     return resArr.length ? resArr[0] : 0
 }
+
+/**Words Order */
+
+function order(words){
+    if(words==='') return words
+    wordsArr = []
+    words.forEach(item=>{
+        let pos = item.match(/\d+/g)
+        if(pos){
+            wordsArr[pos+1] = item
+        }
+    })
+    return wordsArr.join(' ')
+}
