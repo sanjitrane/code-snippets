@@ -148,3 +148,27 @@ function inArray(array1, array2){
 function countSmileys(arr){
     return arr.filter(x => /^[:;][-~]?[(D]$/.test(x)).length;
 }
+
+/**Replace With Alphabet Position */
+function alphabetPosition(text) {
+    const data = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    let res = []
+    text.toLowerCase().split('').forEach(i=>{
+    let index = data.indexOf(i)
+    if(index > -1){
+      res.push(index+1)
+    }
+    })
+    return res.length ? res.join(' ') :'';
+  }
+
+/**Find the Odd Int */
+function findOdd(A){
+    if(!A.length) return 0
+    let resArr = []
+    A.forEach(item=>{
+        let id = resArr.indexOf(item)
+        id > -1 ? resArr.slice(id,1) : resArr.push(item)
+    })
+    return resArr.length ? resArr[0] : 0
+}
