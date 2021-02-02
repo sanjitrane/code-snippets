@@ -208,5 +208,44 @@ function fibonacci(n, memo){
     memo = memo || {}
     if(memo[n]) return memo[n]
     if(n < 2) return n
-    return memo[n] = fibonacci(n-1,memo) - fibonacci(n-2, memo)
+    return memo[n] = fibonacci(n-1,memo) + fibonacci(n-2, memo)
 }
+
+/**Given an n x n array, return the array elements arranged from outermost elements to the middle element, traveling clockwise.
+ * array = [[1,2,3],
+         [4,5,6],
+         [7,8,9]]
+snail(array) #=> [1,2,3,6,9,8,7,4,5]
+ */
+
+ function snail(array){
+    let results=[]
+    let startCol = 0
+    let endCol = array[0].length - 1
+    let startRow = 0
+    let endRow = array[0].length - 1
+    while(startCol <= endCol && startRow <= endRow){
+        //top row
+        if(let i = startCol; i <= endCol; i++){
+            results.push(array[startRow][i])
+        }
+        startRow++
+        //right col
+        if(let i = startRow; i <= endRow; i++){
+            results.push(array[i][endCol])
+        }
+        endCol--
+        //bottom row
+        if(let i = endCol; i >= startCol;i--){
+            results.push(array[endRow][i])
+        }
+        endRow--
+        //start col
+        if(let i = endRow; i >= startRow; i--){
+            results.push(array[i][startCol])
+        }
+        startCol++
+    }
+    
+     return results
+ }
